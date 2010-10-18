@@ -1,6 +1,6 @@
 http://www.example.org/path?_openstat=openstat.ru;camp1;ad1234;top-left-corner	openstat.ru;camp1;ad1234;top-left-corner	openstat.ru	camp1	ad1234	top-left-corner
 http://www.example.org/path?key1=value1&key2=value2&_openstat=openstat.ru;camp1;ad1234;top-left-corner	openstat.ru;camp1;ad1234;top-left-corner	openstat.ru	camp1	ad1234	top-left-corner
-http://www.example.org/path?key1=value1&_openstat=openstat.ru;camp1;ad1234;top-left-corner=&key2=value2	openstat.ru;camp1;ad1234;top-left-corner	openstat.ru	camp1	ad1234	top-left-corner
+http://www.example.org/path?key1=value1&_openstat=openstat.ru;camp1;ad1234;top-left-corner&key2=value2	openstat.ru;camp1;ad1234;top-left-corner	openstat.ru	camp1	ad1234	top-left-corner
 http://www.example.org/path?_openstat=openstat.ru;;;	openstat.ru;;;	openstat.ru			
 http://www.example.org/path?_openstat=b3BlbnN0YXQucnU7Y2FtcDE7YWQxMjM0O3RvcC1sZWZ0LWNvcm5lcg	openstat.ru;camp1;ad1234;top-left-corner	openstat.ru	camp1	ad1234	top-left-corner
 http://www.example.org/path?_openstat=openstat.ru;camp%201;ad%201234;top%20left%20corner	openstat.ru;camp 1;ad 1234;top left corner	openstat.ru	camp 1	ad 1234	top left corner
