@@ -1,0 +1,7 @@
+http://www.example.org/path?_openstat=
+http://www.example.org/path?key1=value1&key2=value2_openstat=openstat.ru;camp1;ad1234;top-left-corner
+http://www.example.org/path?key1=value1&_openstat=openstat.ru;camp1;ad1234;top-left-corner;more;than;4;fields
+http://www.example.org/path?_openstat=b3BlbnN0YXQucnU7Y2FtcDEK
+http://www.example.org/path?_openstat=ᚠᚡᚢᚣ
+http://www.example.org/_openstat=1;2;3;4
+http://www.example.org_openstat=1;2;3;4
