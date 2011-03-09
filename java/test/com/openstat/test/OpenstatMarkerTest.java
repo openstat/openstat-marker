@@ -15,8 +15,8 @@ import org.junit.Test;
 import com.openstat.OpenstatMarker;
 
 public class OpenstatMarkerTest {
-    private static String CURR_DIR = System.getProperty("user.dir");
-    private static String TEST_FILE = CURR_DIR + File.separator + ".."
+    private static final String CURR_DIR = System.getProperty("user.dir");
+    private static final String TEST_FILE = CURR_DIR + File.separator + ".."
     + File.separator + "test" + File.separator + "testcase.txt";
 
     private static final int COL_URL = 0;
