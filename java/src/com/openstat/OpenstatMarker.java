@@ -3,6 +3,8 @@ package com.openstat;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -32,6 +34,8 @@ public class OpenstatMarker {
     private static final Charset UTF8 = Charset.forName("utf-8");
 
     private static final String PREFIX = "_openstat";
+
+    private static final Pattern BASE64_PATTERN = Pattern.compile("[A-Za-z0-9_-]+");
 
     private String service;
     private String campaign;
@@ -225,7 +229,8 @@ public class OpenstatMarker {
         if (marker == null)
             return null;
 
-        if (!marker.contains(";")) {
+        Matcher matcher = BASE64_PATTERN.matcher(marker);
+        if (matcher.matches()) {
             // Try decoding base64 label
 
             // replace URI alphabet

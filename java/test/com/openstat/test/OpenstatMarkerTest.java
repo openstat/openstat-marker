@@ -16,8 +16,9 @@ import com.openstat.OpenstatMarker;
 
 public class OpenstatMarkerTest {
     private static final String CURR_DIR = System.getProperty("user.dir");
-    private static final String TEST_FILE = CURR_DIR + File.separator + ".."
-    + File.separator + "test" + File.separator + "testcase.txt";
+    private static final String TEST_DIR = CURR_DIR + File.separator + ".."
+        + File.separator + "test";
+    private static final String TEST_FILE = TEST_DIR + File.separator + "testcase.txt";
 
     private static final int COL_URL = 0;
     private static final int COL_RAWMARKER = 1;
@@ -64,6 +65,17 @@ public class OpenstatMarkerTest {
 
             assertEquals(col[COL_RAWMARKER], m.toString());
 
+            n++;
+        }
+    }
+
+    @Test public void testBadMarkers() throws IOException {
+        BufferedReader r = utf8Reader(TEST_DIR + File.separator + "bad-markers.txt");
+        String l;
+        int n = 0;
+        while ((l = r.readLine()) != null) {
+            OpenstatMarker m = OpenstatMarker.parseURL(l);
+            assertNull("Marker found in line #" + n, m);
             n++;
         }
     }
