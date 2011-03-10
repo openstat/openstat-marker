@@ -29,11 +29,15 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class OpenstatMarker {
     /**
+     * Constant name of key to look for in HTTP query key-value pairs in search
+     * for a valid Openstat marker.
+     */
+    public static final String PREFIX = "_openstat";
+
+    /**
      * Openstat marker is always UTF8 encoded.
      */
     private static final Charset UTF8 = Charset.forName("utf-8");
-
-    private static final String PREFIX = "_openstat";
 
     private static final Pattern BASE64_PATTERN = Pattern.compile("[A-Za-z0-9_-]+");
 
