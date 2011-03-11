@@ -5,3 +5,5 @@ http://www.example.org/path?_openstat=b3BlbnN0YXQucnU7Y2FtcDEK
 http://www.example.org/path?_openstat=ᚠᚡᚢᚣ
 http://www.example.org/_openstat=1;2;3;4
 http://www.example.org_openstat=1;2;3;4
+http://www.example.org/?_openstat=WCUXI2Wrx7zH0hAvbrH7
+http://www.example.org/path?_openstat=4ZqgO+GaoTvhmqI74Zq/
