@@ -156,7 +156,7 @@ public class OpenstatMarker {
         String s = sb.toString();
 
         if (base64) {
-            return new String(Base64.encodeBase64(s.getBytes(UTF8)), UTF8);
+            return modifyBase64(new String(Base64.encodeBase64(s.getBytes(UTF8)), UTF8));
         } else {
             return s;
         }
@@ -170,6 +170,18 @@ public class OpenstatMarker {
     @Override
     public int hashCode() {
         return toString().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof OpenstatMarker))
+            return false;
+
+        OpenstatMarker m = (OpenstatMarker) obj;
+        return service.equals(m.service)
+            && campaign.equals(m.campaign)
+            && ad.equals(m.ad)
+            && source.equals(m.source);
     }
 
     /**
@@ -238,16 +250,7 @@ public class OpenstatMarker {
             // Try decoding base64 label
 
             // replace URI alphabet
-            String m = marker.replace('-', '+').replace('_', '/');
-
-            // add padding to work around Base64 incorrect length after decoding
-            switch (m.length() % 4) {
-            case 1: m += "==="; break;
-            case 2: m += "=="; break;
-            case 3: m += "="; break;
-            default:
-                // add nothing
-            }
+            String m = unmodifyBase64(marker);
 
             return parseRawMarker(new String(Base64.decodeBase64(m.getBytes(UTF8)), UTF8));
         } else {
@@ -270,5 +273,44 @@ public class OpenstatMarker {
         } else {
             return null;
         }
+    }
+
+    /**
+     * Converts a regular base64-encoded string into a URL-safe modified
+     * base64-encoded string.
+     * @param s regular base64-encoded string
+     * @return modified base64-encoded string
+     */
+    private static String modifyBase64(String s) {
+        // replace some characters
+        String m = s.replace('+', '-').replace('/', '_');
+
+        int cut = m.length();
+        while (cut >= 0 && m.charAt(cut - 1) == '=') {
+            cut--;
+        }
+        return m.substring(0, cut);
+    }
+
+    /**
+     * Converts an URL-safe modified base64-encoded string into a regular
+     * base64-encoded string.
+     * @param s modified base64-encoded string
+     * @return regular base64-encoded string
+     */
+    private static String unmodifyBase64(String s) {
+        // replace some characters
+        String m = s.replace('-', '+').replace('_', '/');
+
+        // add padding to work around Base64 incorrect length after decoding
+        switch (m.length() % 4) {
+        case 1: m += "==="; break;
+        case 2: m += "=="; break;
+        case 3: m += "="; break;
+        default:
+            // add nothing
+        }
+
+        return m;
     }
 }
