@@ -65,6 +65,16 @@ public class OpenstatMarkerTest {
 
             assertEquals(col[COL_RAWMARKER], m.toString());
 
+            String re1 = m.encodedMarker(false);
+            assertEquals("Raw reencoding error (got \"" + re1 + "\") in line #" + n,
+                    m, OpenstatMarker.parseMarker(re1)
+            );
+
+            String re2 = m.encodedMarker(true);
+            assertEquals("Base64 reencoding error (got \"" + re2 + "\") in line #" + n,
+                    m, OpenstatMarker.parseMarker(re2)
+            );
+
             n++;
         }
     }
