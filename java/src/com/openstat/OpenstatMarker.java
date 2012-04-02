@@ -220,6 +220,15 @@ public class OpenstatMarker {
     }
 
     /**
+     * Parses Openstat marker from parsed RequestParameters query.
+     * @param rp parsed RequestParameters object
+     * @return Openstat marker object or null if no marker was found
+     */
+    public static OpenstatMarker parseQuery(RequestParameters rp) {
+        return parseMarker(rp.getParameter(PREFIX));
+    }
+
+    /**
      * Parses Openstat marker from HTTP URL's fragment string.
      * @param frag HTTP URL fragment string (for example, "AAA_openstat=1;2;3;4")
      * @return Openstat marker object or null if no marker was found
