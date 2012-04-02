@@ -39,7 +39,7 @@ public class OpenstatMarker {
      */
     private static final Charset UTF8 = Charset.forName("utf-8");
 
-    private static final Pattern BASE64_PATTERN = Pattern.compile("[A-Za-z0-9_-]+");
+    private static final Pattern BASE64_PATTERN = Pattern.compile("[A-Za-z0-9_-]+=*");
 
     private String service;
     private String campaign;
