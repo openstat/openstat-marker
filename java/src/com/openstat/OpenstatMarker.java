@@ -242,7 +242,7 @@ public class OpenstatMarker {
      * @return Openstat marker object or null if no marker was found
      */
     public static OpenstatMarker parseMarker(String marker) {
-        if (marker == null)
+        if (marker == null || marker.isEmpty())
             return null;
 
         Matcher matcher = BASE64_PATTERN.matcher(marker);
